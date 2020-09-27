@@ -24,13 +24,15 @@ export class Segment {
   handleClick(view) {
     if (this.isChanging) {
       // 1 line is missing
+      clearTimeout(this.isChanging);
 
     } else {
       // 1 line is missing
+      this.timeoutId = setTimeout(this.timeoutCallback.bind(this,view), this.msDelay);
 
     };
     // 1 line is missing
-
+    this.isChanging = !this.isChanging;
 
     logger.push({
       coordinates: `${this.coordinates.x}, ${this.coordinates.y}`,
@@ -42,11 +44,11 @@ export class Segment {
   timeoutCallback(view) {
     if (this.isChanging) {
       // reverse isDisplayed
-
+view.style.backgroundColor=
       // update the view's innerText
 
       // set a timeout and capture the id
-
+this.timeoutId = setTimeout(this.timeoutCallback.bind(this,view), this.msDelayZZ);
     };
   }
 
