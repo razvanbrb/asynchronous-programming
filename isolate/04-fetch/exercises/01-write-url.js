@@ -4,7 +4,7 @@ const log = labeledLogger('1. Write URL');
 const expect = chai.expect;
 
 const origin = window.location.origin;
-const path = _;
+const path = 'https://pokeapi.co/api/v2/{endpoint}/';
 const requestURL = origin + path;
 log("requestURL: ", requestURL);
 
@@ -40,10 +40,10 @@ const handleRejection = (err) => {
 
 
 fetch(requestURL)
-  .then(_)
-  .then(_)
-  .then(_)
-  .catch(_);
+  .then(parseResponse)
+  .then(separateStrings)
+  .then(testStrings)
+  .catch(testStrings);
 
 
 
